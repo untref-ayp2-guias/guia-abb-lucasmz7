@@ -8,7 +8,7 @@ import (
 func SecondLargestElement(bt *binarytree.BinarySearchTree[int]) (int, error) {
 	n, err := bt.FindMax()
 	if err != nil {
-		erro := errors.New("No hay valores")
+		erro := errors.New("no hay valores")
 		return 0, erro
 	}
 
@@ -17,7 +17,7 @@ func SecondLargestElement(bt *binarytree.BinarySearchTree[int]) (int, error) {
 	x, err2 := bt.FindMax()
 
 	if err2 != nil {
-		erro := errors.New("No hay valores")
+		erro := errors.New("no hay valores")
 		return 0, erro
 	}
 

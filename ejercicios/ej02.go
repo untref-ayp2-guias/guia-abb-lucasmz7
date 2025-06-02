@@ -7,14 +7,14 @@ import (
 
 func PredecesorInOrder(bt *binarytree.BinarySearchTree[int], k int) (int, error) {
 	if bt == nil || bt.GetRoot() == nil {
-		return 0, errors.New("No hay predecesores")
+		return 0, errors.New("no hay predecesores")
 	}
 	return search(bt.GetRoot(), k, -1)
 }
 
 func search(n *binarytree.BinaryNode[int], k int, lastRight int) (int, error) {
 	if n == nil {
-		return 0, errors.New("No hay predecesores menores que el mínimo")
+		return 0, errors.New("no hay predecesores menores que el mínimo")
 	}
 
 	// Si encontramos el valor k
@@ -31,7 +31,7 @@ func search(n *binarytree.BinaryNode[int], k int, lastRight int) (int, error) {
 		if lastRight != -1 {
 			return lastRight, nil
 		}
-		return 0, errors.New("No hay predecesores menores que el mínimo")
+		return 0, errors.New("no hay predecesores menores que el mínimo")
 	}
 
 	// Si k es menor que el nodo actual, buscar en el subárbol izquierdo
