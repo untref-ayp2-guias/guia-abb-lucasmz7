@@ -1,0 +1,450 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: TestSecLargeElem
+      id: testseclargeelem
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestSecLargeElem
+        setup-command: ''
+        command: go test ./... -run ^TestSecLargeElem$
+        timeout: 10
+        max-score: 1
+    - name: TestNilSecLargeElem
+      id: testnilseclargeelem
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestNilSecLargeElem
+        setup-command: ''
+        command: go test ./... -run ^TestNilSecLargeElem$
+        timeout: 10
+        max-score: 1
+    - name: TestPredecesorBst
+      id: testpredecesorbst
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestPredecesorBst
+        setup-command: ''
+        command: go test ./... -run ^TestPredecesorBst$
+        timeout: 10
+        max-score: 1
+    - name: TestNilPredecesorBst
+      id: testnilpredecesorbst
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestNilPredecesorBst
+        setup-command: ''
+        command: go test ./... -run ^TestNilPredecesorBst$
+        timeout: 10
+        max-score: 1
+    - name: TestUnoSoloPredecesorBst
+      id: testunosolopredecesorbst
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestUnoSoloPredecesorBst
+        setup-command: ''
+        command: go test ./... -run ^TestUnoSoloPredecesorBst$
+        timeout: 10
+        max-score: 1
+    - name: TestNoIsBst
+      id: testnoisbst
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestNoIsBst
+        setup-command: ''
+        command: go test ./... -run ^TestNoIsBst$
+        timeout: 10
+        max-score: 1
+    - name: TestSiIsBst
+      id: testsiisbst
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestSiIsBst
+        setup-command: ''
+        command: go test ./... -run ^TestSiIsBst$
+        timeout: 10
+        max-score: 1
+    - name: TestNilIsBst
+      id: testnilisbst
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestNilIsBst
+        setup-command: ''
+        command: go test ./... -run ^TestNilIsBst$
+        timeout: 10
+        max-score: 1
+    - name: TestNodoIsBst
+      id: testnodoisbst
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestNodoIsBst
+        setup-command: ''
+        command: go test ./... -run ^TestNodoIsBst$
+        timeout: 10
+        max-score: 1
+    - name: TestMalMinIsBst
+      id: testmalminisbst
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestMalMinIsBst
+        setup-command: ''
+        command: go test ./... -run ^TestMalMinIsBst$
+        timeout: 10
+        max-score: 1
+    - name: TestMalMaxSiIsBst
+      id: testmalmaxsiisbst
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestMalMaxSiIsBst
+        setup-command: ''
+        command: go test ./... -run ^TestMalMaxSiIsBst$
+        timeout: 10
+        max-score: 1
+    - name: TestNewTreeSet
+      id: testnewtreeset
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestNewTreeSet
+        setup-command: ''
+        command: go test ./... -run ^TestNewTreeSet$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetAdd
+      id: testtreesetadd
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetAdd
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetAdd$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetAddMultiple
+      id: testtreesetaddmultiple
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetAddMultiple
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetAddMultiple$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetAddExistenteNoRepite
+      id: testtreesetaddexistentenorepite
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetAddExistenteNoRepite
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetAddExistenteNoRepite$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetContains
+      id: testtreesetcontains
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetContains
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetContains$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetRemove
+      id: testtreesetremove
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetRemove
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetRemove$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetRemoveNonExistent
+      id: testtreesetremovenonexistent
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetRemoveNonExistent
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetRemoveNonExistent$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetSize
+      id: testtreesetsize
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetSize
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetSize$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetValuesOnAnEmptySet
+      id: testtreesetvaluesonanemptyset
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetValuesOnAnEmptySet
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetValuesOnAnEmptySet$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetValuesOnANonEmptySet
+      id: testtreesetvaluesonanonemptyset
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetValuesOnANonEmptySet
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetValuesOnANonEmptySet$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetStringEnSetVacio
+      id: testtreesetstringensetvacio
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetStringEnSetVacio
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetStringEnSetVacio$
+        timeout: 10
+        max-score: 1
+    - name: TestTreeSetStringEnSetNoVacio
+      id: testtreesetstringensetnovacio
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestTreeSetStringEnSetNoVacio
+        setup-command: ''
+        command: go test ./... -run ^TestTreeSetStringEnSetNoVacio$
+        timeout: 10
+        max-score: 1
+    - name: TestInOrderIteratorEmpty
+      id: testinorderiteratorempty
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestInOrderIteratorEmpty
+        setup-command: ''
+        command: go test ./... -run ^TestInOrderIteratorEmpty$
+        timeout: 10
+        max-score: 1
+    - name: TestInOrderIteratorSingle
+      id: testinorderiteratorsingle
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestInOrderIteratorSingle
+        setup-command: ''
+        command: go test ./... -run ^TestInOrderIteratorSingle$
+        timeout: 10
+        max-score: 1
+    - name: TestInOrderIteratorMultiple
+      id: testinorderiteratormultiple
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestInOrderIteratorMultiple
+        setup-command: ''
+        command: go test ./... -run ^TestInOrderIteratorMultiple$
+        timeout: 10
+        max-score: 1
+    - name: TestInOrderIteratorLeftSkewed
+      id: testinorderiteratorleftskewed
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestInOrderIteratorLeftSkewed
+        setup-command: ''
+        command: go test ./... -run ^TestInOrderIteratorLeftSkewed$
+        timeout: 10
+        max-score: 1
+    - name: TestInOrderIteratorRightSkewed
+      id: testinorderiteratorrightskewed
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestInOrderIteratorRightSkewed
+        setup-command: ''
+        command: go test ./... -run ^TestInOrderIteratorRightSkewed$
+        timeout: 10
+        max-score: 1
+    - name: TestPreOrderIteratorEmpty
+      id: testpreorderiteratorempty
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestPreOrderIteratorEmpty
+        setup-command: ''
+        command: go test ./... -run ^TestPreOrderIteratorEmpty$
+        timeout: 10
+        max-score: 1
+    - name: TestPreOrderIteratorSingle
+      id: testpreorderiteratorsingle
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestPreOrderIteratorSingle
+        setup-command: ''
+        command: go test ./... -run ^TestPreOrderIteratorSingle$
+        timeout: 10
+        max-score: 1
+    - name: TestPreOrderIteratorMultiple
+      id: testpreorderiteratormultiple
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestPreOrderIteratorMultiple
+        setup-command: ''
+        command: go test ./... -run ^TestPreOrderIteratorMultiple$
+        timeout: 10
+        max-score: 1
+    - name: TestPreOrderIteratorLeftSkewed
+      id: testpreorderiteratorleftskewed
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestPreOrderIteratorLeftSkewed
+        setup-command: ''
+        command: go test ./... -run ^TestPreOrderIteratorLeftSkewed$
+        timeout: 10
+        max-score: 1
+    - name: TestPreOrderIteratorRightSkewed
+      id: testpreorderiteratorrightskewed
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestPreOrderIteratorRightSkewed
+        setup-command: ''
+        command: go test ./... -run ^TestPreOrderIteratorRightSkewed$
+        timeout: 10
+        max-score: 1
+    - name: TestPostOrderIteratorEmpty
+      id: testpostorderiteratorempty
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestPostOrderIteratorEmpty
+        setup-command: ''
+        command: go test ./... -run ^TestPostOrderIteratorEmpty$
+        timeout: 10
+        max-score: 1
+    - name: TestPostOrderIteratorSingle
+      id: testpostorderiteratorsingle
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestPostOrderIteratorSingle
+        setup-command: ''
+        command: go test ./... -run ^TestPostOrderIteratorSingle$
+        timeout: 10
+        max-score: 1
+    - name: TestPostOrderIteratorMultiple
+      id: testpostorderiteratormultiple
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestPostOrderIteratorMultiple
+        setup-command: ''
+        command: go test ./... -run ^TestPostOrderIteratorMultiple$
+        timeout: 10
+        max-score: 1
+    - name: TestPostOrderIteratorLeftSkewed
+      id: testpostorderiteratorleftskewed
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestPostOrderIteratorLeftSkewed
+        setup-command: ''
+        command: go test ./... -run ^TestPostOrderIteratorLeftSkewed$
+        timeout: 10
+        max-score: 1
+    - name: TestPostOrderIteratorRightSkewed
+      id: testpostorderiteratorrightskewed
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestPostOrderIteratorRightSkewed
+        setup-command: ''
+        command: go test ./... -run ^TestPostOrderIteratorRightSkewed$
+        timeout: 10
+        max-score: 1
+    - name: TestLevelOrderIteratorEmpty
+      id: testlevelorderiteratorempty
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestLevelOrderIteratorEmpty
+        setup-command: ''
+        command: go test ./... -run ^TestLevelOrderIteratorEmpty$
+        timeout: 10
+        max-score: 1
+    - name: TestLevelOrderIteratorSingle
+      id: testlevelorderiteratorsingle
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestLevelOrderIteratorSingle
+        setup-command: ''
+        command: go test ./... -run ^TestLevelOrderIteratorSingle$
+        timeout: 10
+        max-score: 1
+    - name: TestLevelOrderIteratorMultiple
+      id: testlevelorderiteratormultiple
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestLevelOrderIteratorMultiple
+        setup-command: ''
+        command: go test ./... -run ^TestLevelOrderIteratorMultiple$
+        timeout: 10
+        max-score: 1
+    - name: TestLevelOrderIteratorLeftSkewed
+      id: testlevelorderiteratorleftskewed
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestLevelOrderIteratorLeftSkewed
+        setup-command: ''
+        command: go test ./... -run ^TestLevelOrderIteratorLeftSkewed$
+        timeout: 10
+        max-score: 1
+    - name: TestLevelOrderIteratorRightSkewed
+      id: testlevelorderiteratorrightskewed
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestLevelOrderIteratorRightSkewed
+        setup-command: ''
+        command: go test ./... -run ^TestLevelOrderIteratorRightSkewed$
+        timeout: 10
+        max-score: 1
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TESTSECLARGEELEM_RESULTS: ${{steps.testseclargeelem.outputs.result}}
+        TESTNILSECLARGEELEM_RESULTS: ${{steps.testnilseclargeelem.outputs.result}}
+        TESTPREDECESORBST_RESULTS: ${{steps.testpredecesorbst.outputs.result}}
+        TESTNILPREDECESORBST_RESULTS: ${{steps.testnilpredecesorbst.outputs.result}}
+        TESTUNOSOLOPREDECESORBST_RESULTS: ${{steps.testunosolopredecesorbst.outputs.result}}
+        TESTNOISBST_RESULTS: ${{steps.testnoisbst.outputs.result}}
+        TESTSIISBST_RESULTS: ${{steps.testsiisbst.outputs.result}}
+        TESTNILISBST_RESULTS: ${{steps.testnilisbst.outputs.result}}
+        TESTNODOISBST_RESULTS: ${{steps.testnodoisbst.outputs.result}}
+        TESTMALMINISBST_RESULTS: ${{steps.testmalminisbst.outputs.result}}
+        TESTMALMAXSIISBST_RESULTS: ${{steps.testmalmaxsiisbst.outputs.result}}
+        TESTNEWTREESET_RESULTS: ${{steps.testnewtreeset.outputs.result}}
+        TESTTREESETADD_RESULTS: ${{steps.testtreesetadd.outputs.result}}
+        TESTTREESETADDMULTIPLE_RESULTS: ${{steps.testtreesetaddmultiple.outputs.result}}
+        TESTTREESETADDEXISTENTENOREPITE_RESULTS: ${{steps.testtreesetaddexistentenorepite.outputs.result}}
+        TESTTREESETCONTAINS_RESULTS: ${{steps.testtreesetcontains.outputs.result}}
+        TESTTREESETREMOVE_RESULTS: ${{steps.testtreesetremove.outputs.result}}
+        TESTTREESETREMOVENONEXISTENT_RESULTS: ${{steps.testtreesetremovenonexistent.outputs.result}}
+        TESTTREESETSIZE_RESULTS: ${{steps.testtreesetsize.outputs.result}}
+        TESTTREESETVALUESONANEMPTYSET_RESULTS: ${{steps.testtreesetvaluesonanemptyset.outputs.result}}
+        TESTTREESETVALUESONANONEMPTYSET_RESULTS: ${{steps.testtreesetvaluesonanonemptyset.outputs.result}}
+        TESTTREESETSTRINGENSETVACIO_RESULTS: ${{steps.testtreesetstringensetvacio.outputs.result}}
+        TESTTREESETSTRINGENSETNOVACIO_RESULTS: ${{steps.testtreesetstringensetnovacio.outputs.result}}
+        TESTINORDERITERATOREMPTY_RESULTS: ${{steps.testinorderiteratorempty.outputs.result}}
+        TESTINORDERITERATORSINGLE_RESULTS: ${{steps.testinorderiteratorsingle.outputs.result}}
+        TESTINORDERITERATORMULTIPLE_RESULTS: ${{steps.testinorderiteratormultiple.outputs.result}}
+        TESTINORDERITERATORLEFTSKEWED_RESULTS: ${{steps.testinorderiteratorleftskewed.outputs.result}}
+        TESTINORDERITERATORRIGHTSKEWED_RESULTS: ${{steps.testinorderiteratorrightskewed.outputs.result}}
+        TESTPREORDERITERATOREMPTY_RESULTS: ${{steps.testpreorderiteratorempty.outputs.result}}
+        TESTPREORDERITERATORSINGLE_RESULTS: ${{steps.testpreorderiteratorsingle.outputs.result}}
+        TESTPREORDERITERATORMULTIPLE_RESULTS: ${{steps.testpreorderiteratormultiple.outputs.result}}
+        TESTPREORDERITERATORLEFTSKEWED_RESULTS: ${{steps.testpreorderiteratorleftskewed.outputs.result}}
+        TESTPREORDERITERATORRIGHTSKEWED_RESULTS: ${{steps.testpreorderiteratorrightskewed.outputs.result}}
+        TESTPOSTORDERITERATOREMPTY_RESULTS: ${{steps.testpostorderiteratorempty.outputs.result}}
+        TESTPOSTORDERITERATORSINGLE_RESULTS: ${{steps.testpostorderiteratorsingle.outputs.result}}
+        TESTPOSTORDERITERATORMULTIPLE_RESULTS: ${{steps.testpostorderiteratormultiple.outputs.result}}
+        TESTPOSTORDERITERATORLEFTSKEWED_RESULTS: ${{steps.testpostorderiteratorleftskewed.outputs.result}}
+        TESTPOSTORDERITERATORRIGHTSKEWED_RESULTS: ${{steps.testpostorderiteratorrightskewed.outputs.result}}
+        TESTLEVELORDERITERATOREMPTY_RESULTS: ${{steps.testlevelorderiteratorempty.outputs.result}}
+        TESTLEVELORDERITERATORSINGLE_RESULTS: ${{steps.testlevelorderiteratorsingle.outputs.result}}
+        TESTLEVELORDERITERATORMULTIPLE_RESULTS: ${{steps.testlevelorderiteratormultiple.outputs.result}}
+        TESTLEVELORDERITERATORLEFTSKEWED_RESULTS: ${{steps.testlevelorderiteratorleftskewed.outputs.result}}
+        TESTLEVELORDERITERATORRIGHTSKEWED_RESULTS: ${{steps.testlevelorderiteratorrightskewed.outputs.result}}
+      with:
+        runners: testseclargeelem,testnilseclargeelem,testpredecesorbst,testnilpredecesorbst,testunosolopredecesorbst,testnoisbst,testsiisbst,testnilisbst,testnodoisbst,testmalminisbst,testmalmaxsiisbst,testnewtreeset,testtreesetadd,testtreesetaddmultiple,testtreesetaddexistentenorepite,testtreesetcontains,testtreesetremove,testtreesetremovenonexistent,testtreesetsize,testtreesetvaluesonanemptyset,testtreesetvaluesonanonemptyset,testtreesetstringensetvacio,testtreesetstringensetnovacio,testinorderiteratorempty,testinorderiteratorsingle,testinorderiteratormultiple,testinorderiteratorleftskewed,testinorderiteratorrightskewed,testpreorderiteratorempty,testpreorderiteratorsingle,testpreorderiteratormultiple,testpreorderiteratorleftskewed,testpreorderiteratorrightskewed,testpostorderiteratorempty,testpostorderiteratorsingle,testpostorderiteratormultiple,testpostorderiteratorleftskewed,testpostorderiteratorrightskewed,testlevelorderiteratorempty,testlevelorderiteratorsingle,testlevelorderiteratormultiple,testlevelorderiteratorleftskewed,testlevelorderiteratorrightskewed
