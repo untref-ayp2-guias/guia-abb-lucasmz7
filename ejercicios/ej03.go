@@ -20,6 +20,6 @@ func isBstByNode(n *binarytree.BinaryNode[int]) bool {
 		(n.GetRight() != nil && n.GetData() >= n.GetRight().GetData()) {
 		return false
 	}
-
+	// con un OR una mitad puede estar bien y la otra mal y devolveria true
 	return isBstByNode(n.GetLeft()) && isBstByNode(n.GetRight())
 }
