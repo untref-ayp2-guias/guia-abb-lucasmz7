@@ -9,9 +9,10 @@ func PredecesorInOrder(bt *binarytree.BinarySearchTree[int], k int) (int, error)
 	if bt == nil || bt.GetRoot() == nil {
 		return 0, errors.New("no hay predecesores")
 	}
-	return search(bt.GetRoot(), k, -1)
+	return 0, nil //search(bt.GetRoot(), k, -1)
 }
 
+/*
 func search(n *binarytree.BinaryNode[int], k int, lastRight int) (int, error) {
 	if n == nil {
 		return 0, errors.New("no hay predecesores menores que el mínimo")
@@ -42,3 +43,4 @@ func search(n *binarytree.BinaryNode[int], k int, lastRight int) (int, error) {
 	// y actualizar lastRight porque estamos yendo a la derecha
 	return search(n.GetRight(), k, n.GetData())
 }
+*/
