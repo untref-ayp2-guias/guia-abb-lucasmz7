@@ -1,15 +1,15 @@
 package ejercicios
 
 import (
+	"errors"
 	"untref-ayp2/guia-abb/binarytree"
-	"untref-ayp2/guia-abb/stack"
 
 	"golang.org/x/exp/constraints"
 )
 
 // BSTLevelOrderIterator es un iterador para recorrer un BinarySearchTree por niveles (BFS).
 type BSTLevelOrderIterator[T constraints.Ordered] struct {
-	internalStack *stack.Stack[*binarytree.BinaryNode[T]]
+	internalQueue *Queue[*binarytree.BinaryNode[T]]
 }
 
 // NewBSTLevelOrderIterator crea un nuevo BSTLevelOrderIterator.
@@ -20,19 +20,38 @@ type BSTLevelOrderIterator[T constraints.Ordered] struct {
 // Retorna:
 //   - un Iterator.
 func NewBSTLevelOrderIterator[T constraints.Ordered](bst *binarytree.BinarySearchTree[T]) Iterator[T] {
-	// Implementar
-	return nil
+	it := &BSTLevelOrderIterator[T]{
+		internalQueue: NewQueue[*binarytree.BinaryNode[T]](),
+	}
+
+	if root := bst.GetRoot(); root != nil {
+		it.internalQueue.Enqueue(root)
+	}
+
+	return it
 }
 
 // HasNext indica si hay un siguiente dato.
 func (it *BSTLevelOrderIterator[T]) HasNext() bool {
-	// Implementar
-	return false
+	return !it.internalQueue.IsEmpty()
 }
 
 // Next devuelve el siguiente dato, respetando el recorrido por niveles.
 func (it *BSTLevelOrderIterator[T]) Next() (T, error) {
-	// Implementar
-	var zero T
-	return zero, nil
+	if !it.HasNext() {
+		var zero T
+		err := errors.New("árbol vacío")
+		return zero, err
+	}
+
+	node, _ := it.internalQueue.Dequeue()
+
+	if left := node.GetLeft(); left != nil {
+		it.internalQueue.Enqueue(left)
+	}
+	if right := node.GetRight(); right != nil {
+		it.internalQueue.Enqueue(right)
+	}
+
+	return node.GetData(), nil
 }
